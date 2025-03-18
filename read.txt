@@ -1,0 +1,8 @@
+客户端编写：
+    1.通过定时器事件（timeEvent）打开并初始化(VideoCapture)摄像头（cap）
+    2.导入seetface级联分类器文件并使用opencv识别人脸
+    3.定义一个矩形框<vector>框住人脸并将人脸数据转化为灰度图
+    4.把opencv里面的Mat格式数据(BGR)转化为Qt里面的QImage(RGB)，在QT界面显示
+    5.创建socket，定时器 定时连接服务端（msocket,mtimer）
+
+服务端编写
