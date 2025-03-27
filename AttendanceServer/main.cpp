@@ -1,11 +1,16 @@
 #include "attendancewin.h"
 
 #include <QApplication>
+#include <ui_selectwin.h>
+#include <ui_selectwin.h>
+#include <ui_selectwin.h>
 #include <QtSql/QSqlDatabase>
 #include <QtSql/QSqlError>
 #include <QtSql/QSqlQuery>
+#include <opencv/cv.hpp>
 
 #include "registerwin.h"
+#include "selectwin.h"
 
 //员工信息表
 //+------------+--------------+------+-----+---------+----------------+
@@ -33,6 +38,14 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+
+    //注册opencv的Mat类型数据
+    qRegisterMetaType<cv::Mat>("cv::Mat&");
+    qRegisterMetaType<cv::Mat>("cv::Mat");
+    qRegisterMetaType<int64_t>("int64_t");
+
+    //RegisterWin ww;
+    //ww.show();
 
     //连接数据库
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
@@ -67,5 +80,8 @@ int main(int argc, char *argv[])
 
     AttendanceWin w;
     w.show();
+
+    //SelectWin sw;
+    //sw.show();
     return a.exec();
 }

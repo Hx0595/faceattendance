@@ -26,10 +26,11 @@ public:
     void timerEvent(QTimerEvent *e);
 
 protected slots:
+    void recv_data();//接收数据
+private slots:
     void timer_connect();//定时连接服务器
     void stop_connect();//断开连接
     void start_connect();//开始连接
-
 private:
     Ui::FaceAttendence *ui;
 
@@ -42,5 +43,10 @@ private:
     QTcpSocket msocket;
     QTimer mtimer;
 
+    //标志是否是同一个人脸进入到识别区域
+    int flag;
+
+    //保存人脸的数据
+    cv::Mat faceMat;
 };
 #endif // FACEATTENDENCE_H

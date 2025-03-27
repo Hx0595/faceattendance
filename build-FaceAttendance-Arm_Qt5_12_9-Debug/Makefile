@@ -874,31 +874,18 @@ faceattendence.o: ../FaceAttendance/faceattendence.cpp ../FaceAttendance/faceatt
 		../../qt-everywhere-src-5.12.9/arm-qt/include/QtCore/qtimer.h \
 		../../qt-everywhere-src-5.12.9/arm-qt/include/QtCore/qbasictimer.h \
 		ui_faceattendence.h \
-		../../qt-everywhere-src-5.12.9/arm-qt/include/QtCore/QVariant \
-		../../qt-everywhere-src-5.12.9/arm-qt/include/QtWidgets/QApplication \
-		../../qt-everywhere-src-5.12.9/arm-qt/include/QtWidgets/qapplication.h \
-		../../qt-everywhere-src-5.12.9/arm-qt/include/QtCore/qcoreapplication.h \
-		../../qt-everywhere-src-5.12.9/arm-qt/include/QtCore/qeventloop.h \
-		../../qt-everywhere-src-5.12.9/arm-qt/include/QtWidgets/qdesktopwidget.h \
-		../../qt-everywhere-src-5.12.9/arm-qt/include/QtGui/qguiapplication.h \
-		../../qt-everywhere-src-5.12.9/arm-qt/include/QtGui/qinputmethod.h \
-		../../qt-everywhere-src-5.12.9/arm-qt/include/QtWidgets/QHBoxLayout \
-		../../qt-everywhere-src-5.12.9/arm-qt/include/QtWidgets/qboxlayout.h \
-		../../qt-everywhere-src-5.12.9/arm-qt/include/QtWidgets/qlayout.h \
-		../../qt-everywhere-src-5.12.9/arm-qt/include/QtWidgets/qlayoutitem.h \
-		../../qt-everywhere-src-5.12.9/arm-qt/include/QtWidgets/qgridlayout.h \
-		../../qt-everywhere-src-5.12.9/arm-qt/include/QtWidgets/QLabel \
-		../../qt-everywhere-src-5.12.9/arm-qt/include/QtWidgets/qlabel.h \
-		../../qt-everywhere-src-5.12.9/arm-qt/include/QtWidgets/qframe.h \
-		../../qt-everywhere-src-5.12.9/arm-qt/include/QtWidgets/QLineEdit \
-		../../qt-everywhere-src-5.12.9/arm-qt/include/QtWidgets/qlineedit.h \
-		../../qt-everywhere-src-5.12.9/arm-qt/include/QtGui/qtextcursor.h \
-		../../qt-everywhere-src-5.12.9/arm-qt/include/QtGui/qtextformat.h \
-		../../qt-everywhere-src-5.12.9/arm-qt/include/QtGui/qpen.h \
+		../../qt-everywhere-src-5.12.9/arm-qt/include/QtGui/QImage \
+		../../qt-everywhere-src-5.12.9/arm-qt/include/QtGui/QPainter \
+		../../qt-everywhere-src-5.12.9/arm-qt/include/QtGui/qpainter.h \
 		../../qt-everywhere-src-5.12.9/arm-qt/include/QtGui/qtextoption.h \
-		../../qt-everywhere-src-5.12.9/arm-qt/include/QtWidgets/QSpacerItem \
-		../../qt-everywhere-src-5.12.9/arm-qt/include/QtWidgets/QVBoxLayout \
-		../../qt-everywhere-src-5.12.9/arm-qt/include/QtWidgets/QWidget
+		../../qt-everywhere-src-5.12.9/arm-qt/include/QtGui/qpen.h \
+		../../qt-everywhere-src-5.12.9/arm-qt/include/QtCore/QDebug \
+		../../qt-everywhere-src-5.12.9/arm-qt/include/QtCore/QJsonDocument \
+		../../qt-everywhere-src-5.12.9/arm-qt/include/QtCore/qjsondocument.h \
+		../../qt-everywhere-src-5.12.9/arm-qt/include/QtCore/qjsonvalue.h \
+		../../qt-everywhere-src-5.12.9/arm-qt/include/QtCore/QJsonParseError \
+		../../qt-everywhere-src-5.12.9/arm-qt/include/QtCore/QJsonObject \
+		../../qt-everywhere-src-5.12.9/arm-qt/include/QtCore/qjsonobject.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o faceattendence.o ../FaceAttendance/faceattendence.cpp
 
 qrc_image.o: qrc_image.cpp 

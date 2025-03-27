@@ -16,11 +16,11 @@ public:
     ~SelectWin();
 
 private slots:
-    void on_selectBt_clicked();
+    void on_selectBt_clicked();//查询按钮
 
 private:
     Ui::SelectWin *ui;
-    QSqlTableModel *model;
+    QSqlTableModel *model;//表
 
 };
 

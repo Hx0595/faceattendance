@@ -21,6 +21,7 @@ public slots:
     int face_query(cv::Mat& faceImage);//查询人脸
 
 signals:
+    void send_faceid(int64_t faceid);//发送faceid
 
 private:
     //seeta::FaceEngine  *fengineptr

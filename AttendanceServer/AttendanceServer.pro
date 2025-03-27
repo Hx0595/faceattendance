@@ -16,11 +16,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 INCLUDEPATH += /home/hx/opencv-3.4.1/install/include
-LIBS += /home/hx/opencv-3.4.1/install/lib/libopencv_core.so \
-        /home/hx/opencv-3.4.1/install/lib/libopencv_highgui.so \
-        /home/hx/opencv-3.4.1/install/lib/libopencv_imgproc.so \
-        /home/hx/opencv-3.4.1/install/lib/libopencv_videoio.so \
-        /home/hx/opencv-3.4.1/install/lib/libopencv_imgcodecs.so
+LIBS += /home/hx/opencv-3.4.1-desktop/opencv-3.4.1/build/lib/libopencv_core.so \
+        /home/hx/opencv-3.4.1-desktop/opencv-3.4.1/build/lib/libopencv_highgui.so \
+        /home/hx/opencv-3.4.1-desktop/opencv-3.4.1/build/lib/libopencv_imgproc.so \
+        /home/hx/opencv-3.4.1-desktop/opencv-3.4.1/build/lib/libopencv_videoio.so \
+        /home/hx/opencv-3.4.1-desktop/opencv-3.4.1/build/lib/libopencv_imgcodecs.so
 
 
 SOURCES += \
