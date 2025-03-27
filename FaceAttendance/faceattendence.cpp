@@ -7,6 +7,7 @@
 #include <QJsonDocument>
 #include <QJsonParseError>
 #include <QJsonObject>
+#include <QBuffer>
 
 FaceAttendence::FaceAttendence(QWidget *parent)
     : QMainWindow(parent)
@@ -53,12 +54,20 @@ void FaceAttendence::timerEvent(QTimerEvent *e)
     //把图片大小设与显示窗口一样大
     cv::resize(srcImage,srcImage,Size(480,480));
 
+    //判断读取的数据是否为空
+    if(srcImage.data == nullptr) return;
+    //把opencv里面的Mat格式数据(BGR)转化为Qt里面的QImage(RGB)
+    cvtColor(srcImage,srcImage,COLOR_BGR2RGB);
+    QImage image(srcImage.data,srcImage.cols,srcImage.rows,srcImage.step1(),QImage::Format_RGB888);
+    QPixmap mmp = QPixmap::fromImage(image);
+    ui->videoLb->setPixmap(mmp);//在QT界面显示图片
+
     //将人脸转化为灰度图
     Mat grayImage;
     cvtColor(srcImage,grayImage,COLOR_BGR2GRAY);
     //检测人脸数据
     std::vector<Rect> faceRects;//定义一个矩形框用来框住人脸
-    //cascade.detecMultiScale(grayImage,faceRects);//检测人脸的函数,用灰度图检测，识别效果更好
+    //cascade.detecMultiScale(grayImage,faceRects,1,1,3,0,cv::Size(150,150);//检测人脸的函数,用灰度图检测，识别效果更好
     if(faceRects.size()>0 && flag >= 0)//检测到人脸
     {
         //1.
@@ -71,15 +80,24 @@ void FaceAttendence::timerEvent(QTimerEvent *e)
         if(flag > 2)
         {
             //把Mat数据转化为QbyteArray, -->编码成jpg格式(压缩数据）
-            std::vector<uchar> buf;
-            cv::imencode(".jpg",srcImage,buf);
-            QByteArray byte((const char*)buf.data(),buf.size());
+            //std::vector<uchar> buf;
+            //cv::imencode(".jpg",srcImage,buf);
+            //QByteArray byte((const char*)buf.data(),buf.size());
+
+            //QImage转换为QByteArray
+            QByteArray byte;
+            QBuffer buffer(&byte);
+            buffer.open(QIODevice::WriteOnly);
+            image.save(&buffer, "jpg");
+            buffer.close();
+
             //准备发送 通过数据流发送
             quint64 backsize = byte.size();
             QByteArray sendData;
             QDataStream stream(&sendData,QIODevice::WriteOnly); //数据流添加只写权限
             stream.setVersion(QDataStream::Qt_5_12);//设置数据流版本
             stream<<backsize<<byte;//往数据流放入数据
+
             //发送
             msocket.write(sendData);
             flag = -2;
@@ -95,14 +113,6 @@ void FaceAttendence::timerEvent(QTimerEvent *e)
         ui->headpicLb->move(100,60);
         flag = 0;
     }
-
-    //判断读取的数据是否为空
-    if(srcImage.data == nullptr) return;
-    //把opencv里面的Mat格式数据(BGR)转化为Qt里面的QImage(RGB)
-    cvtColor(srcImage,srcImage,COLOR_BGR2RGB);
-    QImage image(srcImage.data,srcImage.cols,srcImage.rows,srcImage.step1(),QImage::Format_RGB888);
-    QPixmap mmp = QPixmap::fromImage(image);
-    ui->videoLb->setPixmap(mmp);//在QT界面显示图片
 }
 
 void FaceAttendence::recv_data()
