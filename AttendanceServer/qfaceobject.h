@@ -24,7 +24,7 @@ signals:
     void send_faceid(int64_t faceid);//发送faceid
 
 private:
-    //seeta::FaceEngine  *fengineptr
+    seeta::FaceEngine  *fengineptr
 
 };
 
