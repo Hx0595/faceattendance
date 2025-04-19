@@ -22,6 +22,12 @@ LIBS += /home/hx/opencv-3.4.1/install/lib/libopencv_core.so \
         /home/hx/opencv-3.4.1/install/lib/libopencv_imgproc.so \
         /home/hx/opencv-3.4.1/install/lib/libopencv_videoio.so \
         /home/hx/opencv-3.4.1/install/lib/libopencv_imgcodecs.so
+LIBS += -lSeetaFaceDetector \
+-lSeetaFaceLandmarker \
+-lSeetaFaceRecognizer \
+-lSeetaFaceTracker \
+-lSeetaNet \
+-lSeetaQualityAssessor \
 
 
 SOURCES += \
