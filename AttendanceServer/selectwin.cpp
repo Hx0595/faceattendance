@@ -26,7 +26,7 @@ void SelectWin::on_selectBt_clicked()
     }
 
     //设置过滤器
-    //model->setFilter("name='张三'");
+    model->setFilter("name='张三'");
     //查询
     model->select();
 
