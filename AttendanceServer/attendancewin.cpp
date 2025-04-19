@@ -94,7 +94,7 @@ void AttendanceWin::read_data()
     //解码
     faceImage = cv::imdecode(decode,cv::IMREAD_COLOR);//将字节流数据转化为faceImage矩阵
 
-    //int faceid = fobj.face_query(faceImage);//消耗资源较多
+    int faceid = fobj.face_query(faceImage);//消耗资源较多
     emit query(faceImage);//通过信号执行线程函数
 }
 
@@ -128,15 +128,14 @@ void AttendanceWin::recv_faceid(int64_t faceid)
         //把数据写入数据库--考勤表
         QString insertSql = QString("insert into attendance(employeeID) values('%1')").arg(record.value("employeeID").toString());
         QString query;
-        /*if(!query.exec(insertSql))//考勤失败
+        if(!query.exec(insertSql))//考勤失败
         {
-            //QString sdmsg = QString("{\"employeeID\":\"\",\"name\":\"\",\"department\":\"\",\"time\":\"\"}");
-            //msocket->write(sdmsg.toUtf8());//把打包好的数据发送给客户端
-            //return ;
+            QString sdmsg = QString("{\"employeeID\":\"\",\"name\":\"\",\"department\":\"\",\"time\":\"\"}");
+            msocket->write(sdmsg.toUtf8());//把打包好的数据发送给客户端
+            return ;
         }else//考勤成功
         {
-             //msocket->write(sdmsg.toUtf8());//把打包好的数据发送给客户端
-        }*/
-
+             msocket->write(sdmsg.toUtf8());//把打包好的数据发送给客户端
+        }
     }
 }
