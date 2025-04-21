@@ -20,7 +20,7 @@ FaceAttendence::FaceAttendence(QWidget *parent)
     startTimer(100);//100ms
 
     //导入级联分类器文件,用于检测人脸  file.xml训练好的脸部特征数据
-    //cascade.load("./haarcascade_frontalface_alt2.xml")//file.xml"
+    cascade.load("./haarcascade_frontalface_alt2.xml")//file.xml"
 
     //QTcpSocket当断开连接的时候发送disconnected信号，连接成功会发送connected
     connect(&msocket,&QTcpSocket::disconnected,this,&FaceAttendence::start_connect);
@@ -67,7 +67,7 @@ void FaceAttendence::timerEvent(QTimerEvent *e)
     cvtColor(srcImage,grayImage,COLOR_BGR2GRAY);
     //检测人脸数据
     std::vector<Rect> faceRects;//定义一个矩形框用来框住人脸
-    //cascade.detecMultiScale(grayImage,faceRects,1,1,3,0,cv::Size(150,150);//检测人脸的函数,用灰度图检测，识别效果更好
+    cascade.detecMultiScale(grayImage,faceRects,1,1,3,0,cv::Size(150,150);//检测人脸的函数,用灰度图检测，识别效果更好
     if(faceRects.size()>0 && flag >= 0)//检测到人脸
     {
         //1.
