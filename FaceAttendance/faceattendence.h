@@ -37,7 +37,7 @@ private:
     //摄像头
     VideoCapture cap;
     //hear--级联分类器 用于检测人脸
-    //cv::CascadeClassifier cascade;
+    cv::CascadeClassifier cascade;
 
     //创建网络套接字，定时器(用来定时连接服务器)
     QTcpSocket msocket;
