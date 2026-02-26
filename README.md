@@ -27,4 +27,4 @@ faceattendance/
 │   └── yes.png                # 认证成功标识
 ├── .qmake.stash               
 ├── README.md                  
-└── read.txt                   
+└── ENVIRONMENT.md                   
