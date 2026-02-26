@@ -61,6 +61,5 @@ faceattendance/
 │   ├── image.qrc              # 图标资源文件
 │   ├── crc.png                # 人脸框背景
 │   └── yes.png                # 认证成功标识
-├── .qmake.stash               
-├── README.md                  
-└── ENVIRONMENT.md                   
+├── .qmake.stash                            
+└──  README.md                  
